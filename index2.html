@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <div id="main-side-menu">
+    <nav>
+      <a href="#student">Student</a>
+      <a href="#seat">Seat</a>
+    </nav>
+  </div>
+
+  <div id="main-header"></div>
+
+  <div id="main-container">
+    <div id="student" class="tab-content">
+      <div id="student-menu">
+        <nav>
+          <a href="#student-add">add</a>
+          <a href="#student-edit">edit</a>
+          <a href="#student-list">list</a>
+        </nav>
+      </div>
+
+      <div id="student-container">
+        <h1>Student</h1>
+        <h4>生徒に関する設定</h4>
+      </div>
+    </div>
+
+    <div id="seat" class="tab-content">
+      <div id="seat-menu">
+        <nav>
+          <a href="#seat-size">size</a>
+          <a href="#seat-gender">gender</a>
+          <a href="#seat-priority">priority</a>
+        </nav>
+      </div>
+
+      <div id="seat-container">
+        <h1>Seat</h1>
+        <h4>座席に関する設定</h4>
+      </div>
+    </div>
+
+
+
+
+    <div id="student-menu-container">
+      <div id="student-add" class="tab-content" ng-controller="MainController">
+        <div>
+          <nav>
+            <a href="#student-add">add</a>
+            <a href="#student-edit">edit</a>
+            <a href="#student-list">list</a>
+          </nav>
+        </div>
+
+        <div id="student-add-header">
+          <h1>Student >> add</h1>
+          <h4>生徒の登録</h4>
+        </div>
+
+        <div id="student-add-container">
+          <div>
+            <form novalidate name="myForm" ng-submit="addUser()">
+              <p>Number: <input type="number" name="number" value="1" ng-model="user.number"></p>
+              <p>Name: <input type="text" name="name" ng-model="user.name"></p>
+              <p>
+                <label for="checkbox-male">男性</label>
+                <input id="checkbox-male" type="radio" name="gender" ng-model="user.gender" value="MALE" checked="checked">
+                <label for="checkbox-female">女性</label>
+                <input id="checkbox-female" type="radio" name="gender" ng-model="user.gender" value="FEMALE">
+              </p>
+              <p><input type="submit" value="add"></p>
+            </form>
+          </div>
+          <div>
+            <ul>
+              <li ng-repeat="user in users">
+                {{user.number}}, {{user.genderJa}}, {{user.nameJa}}
+              </li>
+            </ul>
+          </div>
+          <!--
+          <form novalidate name="myForm-2" ng-submit="save()">
+            <input type="submit" value="save">
+          </form>
+          -->
+        </div>
+
+        <div id="student-add-footer"></div>
+      </div>
+
+
+      <div id="student-edit" class="tab-content">
+        <div>
+          <nav>
+            <a href="#student-add">add</a>
+            <a href="#student-edit">edit</a>
+            <a href="#student-list">list</a>
+          </nav>
+        </div>
+
+        <div id="student-edit-header">
+          <h1>Student >> edit</h1>
+          <h4>生徒の編集</h4>
+        </div>
+
+        <div id="student-edit-container"></div>
+
+        <div id="student-edit-footer"></div>
+      </div>
+
+
+      <div id="student-list" class="tab-content">
+        <div>
+          <nav>
+            <a href="#student-add">add</a>
+            <a href="#student-edit">edit</a>
+            <a href="#student-list">list</a>
+          </nav>
+        </div>
+
+        <div id="student-list-header">
+          <h1>Student >> list</h1>
+          <h4>生徒のリスト</h4>
+        </div>
+
+        <div id="student-list-container"></div>
+
+        <div id="student-list-footer"></div>
+      </div>
+    </div>
+
+
+
+    <div id="seat-menu-container">
+      <div id="seat-size" class="tab-content">
+        <div>
+          <nav>
+            <a href="#seat-size">size</a>
+            <a href="#seat-gender">gender</a>
+            <a href="#seat-priority">priority</a>
+          </nav>
+        </div>
+        <p>Seat size</p>
+      </div>
+
+
+      <div id="seat-gender" class="tab-content">
+        <div>
+          <nav>
+            <a href="#seat-size">size</a>
+            <a href="#seat-gender">gender</a>
+            <a href="#seat-priority">priority</a>
+          </nav>
+        </div>
+        <p>Seat gender</p>
+      </div>
+
+
+      <div id="seat-priority" class="tab-content">
+        <div>
+          <nav>
+            <a href="#seat-size">size</a>
+            <a href="#seat-gender">gender</a>
+            <a href="#seat-priority">priority</a>
+          </nav>
+        </div>
+        <p>Seat priority</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-footer"></div>
+
+  <!--
+  <script src="js/webstorage.js"></script>
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  -->
+</body>
+</html>
