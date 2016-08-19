@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div ng-controller="MainController">
+    <form novalidate name="myForm" ng-submit="addUser()">
+      <p>Number: <input type="number" name="number" value="1" ng-model="user.number"></p>
+      <p>Name: <input type="text" name="name" ng-model="user.name"></p>
+      <!--
+      <p>Score: <input type="number" name="score" ng-model="user.score" ></p>
+      <p>Email: <input type="email" name="email" ng-model="user.email" ></p>
+      <span ng-show="myForm.email.$error.email">Not valid email!</span>
+      <p>Web: <input type="url" name="url" ng-model="user.url" ></p>
+      <span ng-show="myForm.url.$error.url">Not valid email!</span>
+      -->
+      <p>
+        <label for="checkbox-male">男性</label>
+        <input id="checkbox-male" type="radio" name="gender" ng-model="user.gender" value="MALE" checked="checked">
+        <label for="checkbox-female">女性</label>
+        <input id="checkbox-female" type="radio" name="gender" ng-model="user.gender" value="FEMALE">
+      </p>
+      <p><input type="submit" value="add"></p>
+    </form>
+
+    <ul>
+      <li ng-repeat="user in users">
+        {{user.number}}, {{user.genderJa}}, {{user.nameJa}}
+      </li>
+    </ul>
+
+    <form novalidate name="myForm-2" ng-submit="save()">
+      <input type="submit" value="save">
+    </form>
+  </div>
+
+  <script src="js/webstorage.js"></script>
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

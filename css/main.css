@@ -1,7 +1,7 @@
-.todo-item .todo-title {
-  color: #888;
+.tab-content {
+  display: none;
 }
 
-.done .todo-title {
-  text-decoration: line-through;
+.tab-content:target {
+  display: block;
 }
